@@ -78,6 +78,10 @@
                             <i style="color: #0E1BB1" class="material-icons">group</i>
                             <span>Employees Record</span>
                         </a>
+                        <a href="products.php" >
+                            <i style="color: #0E1BB1" class="material-icons">group</i>
+                            <span>Products Record</span>
+                        </a>
 
                       
 

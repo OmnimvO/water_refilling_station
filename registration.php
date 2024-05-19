@@ -51,16 +51,16 @@
     <link href="includes/css/style.css" rel="stylesheet">
 </head>
 
-<body class="signup-page" style="background-color: darkblue;">
+<body class="signup-page" style="background-image: url('img/background.jpg'); background-size: cover; background-repeat: no-repeat;">
+
     <div class="signup-box">
-        <div class="logo">
-            <a href="javascript:void(0);">Code<b>Hunt</b></a>
-            <small>Skill Development System</small>
+        <div class="flex text-dark align-center">
+           <h1>Register</h1>
         </div>
         <div class="card">
             <div class="body">
                 <form id="sign_up" action="" method="POST">
-                    <div class="msg">Register a new membership</div>
+                    <div class="msg">Register a new account</div>
                     <div class="input-group">
                         <span class="input-group-addon">
                             <i class="material-icons">person</i>
@@ -86,7 +86,7 @@
                         </div>
                     </div>
 
-                    <button class="btn btn-block btn-lg bg-pink waves-effect" name="submit" type="submit">SIGN UP</button>
+                    <button class="btn btn-block btn-lg bg-blue waves-effect" name="submit" type="submit">SIGN UP</button>
 
                     <div class="m-t-25 m-b--5 align-center">
                         <a href="index.php">You already have a membership?</a>

@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>View Product Details</title>
+    <title>3 ACES DEWDROPS</title>
     <!-- Favicon-->
     <link rel="icon" href="includes/favicon.ico" type="image/x-icon">
 
@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>VIEW PRODUCT DETAILS</h2>
+                <h2>3 ACES DEWDROPS ORDER TRACKING SYSTEM</h2>
             </div>
             <!-- View Student Details -->
             <div class="row clearfix">

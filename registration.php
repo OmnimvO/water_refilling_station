@@ -51,11 +51,15 @@
     <link href="includes/css/style.css" rel="stylesheet">
 </head>
 
-<body class="signup-page" style="background-image: url('img/background.jpg'); background-size: cover; background-repeat: no-repeat;">
+<body class="signup-page" style="background-image: url('img/wallpaper.png'); background-size: cover; background-repeat: no-repeat; margin-right: 60%;">
+
+<br>
+<br>
 
     <div class="signup-box">
         <div class="flex text-dark align-center">
-           <h1>Register</h1>
+           <h1>Sign up</h1>
+           <br>
         </div>
         <div class="card">
             <div class="body">
@@ -89,7 +93,7 @@
                     <button class="btn btn-block btn-lg bg-blue waves-effect" name="submit" type="submit">SIGN UP</button>
 
                     <div class="m-t-25 m-b--5 align-center">
-                        <a href="index.php">You already have a membership?</a>
+                        <a href="index.php">Already have an account? <b>Log in</b></a>
                     </div>
                 </form>
             </div>

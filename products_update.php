@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Update Product | WRS Order Tracking System</title>
+    <title>3 ACES DEWDROPS</title>
     <!-- Favicon-->
     <link rel="icon" href="includes/favicon.ico" type="image/x-icon">
 

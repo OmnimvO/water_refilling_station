@@ -11,15 +11,7 @@ if (isset($_GET['id'])) {
     $order_Id = mysqli_real_escape_string($conn, $_GET['id']);
 
     // Fetch order details from the database
-    $query = "
-        SELECT orders.*, customers.customer_name, products.product_name, employees.employee_name 
-        FROM orders 
-        JOIN customers ON orders.customer_Id = customers.customer_Id 
-        JOIN products ON orders.product_Id = products.product_Id 
-        JOIN employees ON orders.employee_Id = employees.employee_Id 
-        WHERE orders.order_Id = $order_Id";
-
-    $resultOrders = mysqli_query($conn, $query);
+    $resultOrders = mysqli_query($conn, "SELECT * FROM orders WHERE order_Id = $order_Id");
 
     // Check if the query was successful
     if (!$resultOrders) {
@@ -31,6 +23,37 @@ if (isset($_GET['id'])) {
     // Check if the order exists
     if (mysqli_num_rows($resultOrders) == 1) {
         $row = mysqli_fetch_assoc($resultOrders);
+
+        // Fetch customer name
+        $customer_Id = $row["customer_Id"];
+        $resultCustomer = mysqli_query($conn, "SELECT customer_Name FROM customers WHERE customer_Id = $customer_Id");
+        if ($resultCustomer && mysqli_num_rows($resultCustomer) == 1) {
+            $customer = mysqli_fetch_assoc($resultCustomer);
+            $customerName = $customer['customer_Name'];
+        } else {
+            $customerName = "Unknown Customer";
+        }
+
+        // Fetch product name
+        $product_Id = $row["product_Id"];
+        $resultProduct = mysqli_query($conn, "SELECT product_Name FROM products WHERE product_Id = $product_Id");
+        if ($resultProduct && mysqli_num_rows($resultProduct) == 1) {
+            $product = mysqli_fetch_assoc($resultProduct);
+            $productName = $product['product_Name'];
+        } else {
+            $productName = "Unknown Product";
+        }
+
+        // Fetch employee name
+        $employee_Id = $row["employee_Id"];
+        $resultEmployee = mysqli_query($conn, "SELECT employee_Name FROM employees WHERE employee_Id = $employee_Id");
+        if ($resultEmployee && mysqli_num_rows($resultEmployee) == 1) {
+            $employee = mysqli_fetch_assoc($resultEmployee);
+            $employeeName = $employee['employee_Name'];
+        } else {
+            $employeeName = "Unknown Employee";
+        }
+
     } else {
         // Order not found, display message
         echo "<p>Order not found</p>";
@@ -94,15 +117,15 @@ if (isset($_GET['id'])) {
                                     </tr>
                                     <tr>
                                         <th>Customer</th>
-                                        <td><?php echo htmlspecialchars($row["customer_Id"]); ?></td>
+                                        <td><?php echo htmlspecialchars($row["customer_Name"]); ?></td>
                                     </tr>
                                     <tr>
                                         <th>Product</th>
-                                        <td><?php echo htmlspecialchars($row["product_Id"]); ?></td>
+                                        <td><?php echo htmlspecialchars($row["product_Name"]); ?></td>
                                     </tr>
                                     <tr>
                                         <th>Employee</th>
-                                        <td><?php echo htmlspecialchars($row["employee_Id"]); ?></td>
+                                        <td><?php echo htmlspecialchars($row["employee_Name"]); ?></td>
                                     </tr>
                                     <tr>
                                         <th>Date</th>

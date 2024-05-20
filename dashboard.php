@@ -46,7 +46,6 @@ include("auth_session.php");
             <div class="block-header">
                 <h2>
                     WATER REFILLING STATION ORDER TRACKING SYSTEM
-                    <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
                 </h2>
             </div>
 

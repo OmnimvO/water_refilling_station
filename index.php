@@ -50,11 +50,11 @@
     <link href="includes/css/style.css" rel="stylesheet">
 </head>
 
-<body class="login-page" style="background-color: darkblue;">
+<body class="login-page" style="background-image: url('img/background.jpg'); background-size: cover; background-repeat: no-repeat;">
+
     <div class="login-box">
-        <div class="logo">
-            <a href="javascript:void(0);">Code<b>Hunt</b></a>
-            <small>Skill Development System</small>
+        <div class="flex text-dark align-center">
+           <h1>Login</h1>
         </div>
         <div class="card">
             <div class="body">
@@ -76,12 +76,11 @@
                             <input type="password" class="form-control" name="password" placeholder="Password" required>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-8 p-t-5">
-                        </div>
-                        <div class="col-xs-4">
-                            <button class="btn btn-block bg-pink waves-effect" name="submit"  type="submit">SIGN IN</button>
-                        </div>
+
+                    <button class="btn btn-block bg-blue waves-effect" name="submit"  type="submit">SIGN IN</button>
+
+                    <div class="m-t-25 m-b--5 align-center">
+                        <a href="registration.php">Don't have an account?</a>
                     </div>
                 </form>
             </div>

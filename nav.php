@@ -82,8 +82,10 @@
                             <i style="color: #0E1BB1" class="material-icons">inventory</i>
                             <span>Products Record</span>
                         </a>
-
-                      
+                        <a href="orders.php" >
+                            <i style="color: #0E1BB1" class="material-icons">list</i>
+                            <span>Orders</span>
+                        </a>
 
                     </li>
                 </ul>

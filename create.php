@@ -27,7 +27,7 @@ if(isset($_POST['save'])) {
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Form Examples | Bootstrap Based Admin Template - Material Design</title>
+    <title>3 ACES DEWDROPS</title>
     <!-- Favicon-->
     <link rel="icon" href="includes/favicon.ico" type="image/x-icon">
 
@@ -61,7 +61,7 @@ if(isset($_POST['save'])) {
     <section class="content">
         <div class="container-fluid">
             <div class="block-header">
-                <h2>WRS CUSTOMERS DATATABLE</h2>
+                <h2>3 ACES DEWDROPS ORDER TRACKING SYSTEM</h2>
             </div>
 
             <!-- Vertical Layout -->

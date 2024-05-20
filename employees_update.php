@@ -15,7 +15,7 @@ if (isset($_POST['save'])) {
     echo '<script>alert("Employee information updated successfully")</script>';
 
     // Redirect to dashboard after updating
-    echo "<script>window.location.href ='dashboard.php'</script>";
+    echo "<script>window.location.href ='employees.php'</script>";
     exit();
 }
 
@@ -33,7 +33,7 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>Update Employee | WRS Employee Management System</title>
+    <title>3 ACES DEWDROPS</title>
     <!-- Favicon-->
     <link rel="icon" href="includes/favicon.ico" type="image/x-icon">
 

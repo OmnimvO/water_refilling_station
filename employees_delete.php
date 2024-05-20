@@ -11,7 +11,7 @@ if(isset($_GET["id"])) {
         if (mysqli_query($conn, $sql)) {
             // Deletion successful
             mysqli_close($conn);
-            header("Location: dashboard.php"); // Redirect to dashboard after deletion
+            header("Location: employees.php"); // Redirect to dashboard after deletion
             exit();
         } else {
             // Error occurred during deletion
@@ -21,7 +21,7 @@ if(isset($_GET["id"])) {
         // Confirmation dialog
         echo '<script>
             if (confirm("Are you sure you want to delete this employee?")) {
-                window.location.href = "delete.php?id=' . $employee_Id . '&confirmed=true";
+                window.location.href = "employees_delete.php?id=' . $employee_Id . '&confirmed=true";
             } else {
                 window.location.href = "employees.php";
             }

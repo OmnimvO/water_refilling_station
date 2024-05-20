@@ -8,7 +8,7 @@ include("auth_session.php");
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>CSIT SKILL DEVELOPMENT SYSTEM</title>
+    <title>3 ACES DEWDROPS</title>
     <!-- Favicon-->
     <link rel="icon" href="includes/favicon.ico" type="image/x-icon">
 
@@ -45,7 +45,7 @@ include("auth_session.php");
         <div class="container-fluid">
             <div class="block-header">
                 <h2>
-                    WATER REFILLING STATION ORDER TRACKING SYSTEM
+                    3 ACES DEWDROPS ORDER TRACKING SYSTEM
                 </h2>
             </div>
 
@@ -54,7 +54,7 @@ include("auth_session.php");
                     <div class="card">
                         <div class="header">
                             <h2>
-                                WRS CUSTOMERS DATATABLE
+                                CUSTOMERS DATATABLE
                             </h2>
                             <ul class="header-dropdown m-r--5">
                                 <a href="create.php" class="btn btn-primary float-right">Add New Customer</a>

@@ -30,12 +30,12 @@
     </div>
     <!-- #END# Search Bar -->
     <!-- Top Bar -->
-    <nav class="navbar" >
+    <nav class="navbar">
         <div class="container-fluid" style="background-color: darkblue;">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="includes/index.html">WATER REFILLING STATION ORDERING TRACKER SYSTEM</a>
+                <a class="navbar-brand" href="includes/index.html"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3 ACES DEWDROPS ORDER TRACKING SYSTEM</a>
             </div>
         </div>
     </nav>
@@ -44,7 +44,7 @@
         <!-- Left Sidebar -->
         <aside id="leftsidebar" class="sidebar" style="background-color: #f2f2f2;">
             <!-- User Info -->
-            <div class="user-info" style="background-image: url(./includes/images/wallpaper2.jpg); background-position: cover; background-repeat: no-repeat;">
+            <div class="user-info" style="background-image: url(./includes/images/walls.png); background-position: cover; background-repeat: no-repeat;">
                 <div class="image">
                     <img src="includes/images/user3.png" width="48" height="48" alt="User" />
                 </div>
@@ -75,11 +75,11 @@
                             <span>Customer Record</span>
                         </a>
                         <a href="employees.php" >
-                            <i style="color: #0E1BB1" class="material-icons">group</i>
+                            <i style="color: #0E1BB1" class="material-icons">badge</i>
                             <span>Employees Record</span>
                         </a>
                         <a href="products.php" >
-                            <i style="color: #0E1BB1" class="material-icons">group</i>
+                            <i style="color: #0E1BB1" class="material-icons">inventory</i>
                             <span>Products Record</span>
                         </a>
 

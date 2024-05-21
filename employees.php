@@ -43,13 +43,6 @@ include("auth_session.php");
 
     <section class="content">
         <div class="container-fluid">
-            <div class="block-header">
-                <h2>
-                    3 ACES DEWDROPS ORDER TRACKING SYSTEM
-                    <small>Taken from <a href="https://datatables.net/" target="_blank">datatables.net</a></small>
-                </h2>
-            </div>
-
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">

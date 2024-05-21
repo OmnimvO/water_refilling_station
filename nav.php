@@ -94,10 +94,7 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2023 - 2024 <a href="dashboard.php">WATER REFILLING STATION ORDERING TRACKER SYSTEM</a>.
-                </div>
-                <div class="version">
-                    <b>Version: </b> 1.0.0
+                    &copy; 2024 <a href="dashboard.php">WATER REFILLING STATION <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ORDERING TRACKER SYSTEM</a>.
                 </div>
             </div>
             <!-- #Footer -->

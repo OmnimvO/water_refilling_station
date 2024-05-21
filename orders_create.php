@@ -8,23 +8,25 @@ include_once 'db.php';
 // Process form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Escape user inputs for security
-    $customer_Id = mysqli_real_escape_string($conn, $_POST['customer_Id']);
-    $product_Id = mysqli_real_escape_string($conn, $_POST['product_Id']);
-    $employee_Id = mysqli_real_escape_string($conn, $_POST['employee_Id']);
-    $order_Date = mysqli_real_escape_string($conn, $_POST['order_Date']);
-    $order_Status = mysqli_real_escape_string($conn, $_POST['order_Status']);
-    $product_Quantity = mysqli_real_escape_string($conn, $_POST['product_Quantity']);
+    $customer_Id = $_POST['customer_Id'];
+    $product_Id = $_POST['product_Id'];
+    $employee_Id = $_POST['employee_Id'];
+    $order_Date = $_POST['order_Date'];
+    $order_Status = $_POST['order_Status'];
+    $product_Quantity = $_POST['product_Quantity'];
 
     // Attempt insert query execution
     $sql = "INSERT INTO orders (customer_Id, product_Id, employee_Id, order_Date, order_Status, product_Quantity) VALUES ('$customer_Id', '$product_Id', '$employee_Id', '$order_Date', '$order_Status', '$product_Quantity')";
     if (mysqli_query($conn, $sql)) {
         echo "Records added successfully.";
+        echo "<script>window.location.href ='orders.php'</script>";
     } else {
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
 
     // Close connection
     mysqli_close($conn);
+
 }
 ?>
 
@@ -32,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>3 ACES DEWDROPS</title>
     <!-- Favicon-->
@@ -59,6 +61,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="includes/css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- Bootstrap Select Css -->
+    <link href="includes/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+
 </head>
 
 <body class="theme-red">
@@ -171,13 +177,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </section>
 
-    <!-- Jquery Core Js -->
-    <script src="includes/plugins/jquery/jquery.min.js"></script>
+   
+   <!-- Jquery Core Js -->
+   <script src="includes/plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
     <script src="includes/plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Select Plugin Js -->
+    <!-- Bootstrap Select Plugin Js -->
     <script src="includes/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
@@ -191,6 +198,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Demo Js -->
     <script src="includes/js/demo.js"></script>
+
 </body>
 
 </html>

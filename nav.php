@@ -94,7 +94,7 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; 2024 <a href="dashboard.php">WATER REFILLING STATION <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ORDERING TRACKER SYSTEM</a>.
+                    &copy; 2024 <a href="dashboard.php">3 ACES DEWDROPS <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ORDER TRACKING SYSTEM</a>.
                 </div>
             </div>
             <!-- #Footer -->

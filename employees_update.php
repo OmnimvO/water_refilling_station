@@ -12,7 +12,7 @@ if (isset($_POST['save'])) {
     
     echo '<script>alert("Employee information updated successfully")</script>';
 
-    echo "<script>window.location.href ='employees  .php'</script>";
+    echo "<script>window.location.href ='employees.php'</script>";
     exit();
 }
 

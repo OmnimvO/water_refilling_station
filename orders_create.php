@@ -1,13 +1,11 @@
 <?php
-// Include auth_session.php file on all user panel pages
+
 include("auth_session.php");
 
-// Include database connection
 include_once 'db.php';
 
-// Process form submission
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Escape user inputs for security
+
     $customer_Id = $_POST['customer_Id'];
     $product_Id = $_POST['product_Id'];
     $employee_Id = $_POST['employee_Id'];
@@ -15,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $order_Status = $_POST['order_Status'];
     $product_Quantity = $_POST['product_Quantity'];
 
-    // Attempt insert query execution
     $sql = "INSERT INTO orders (customer_Id, product_Id, employee_Id, order_Date, order_Status, product_Quantity) VALUES ('$customer_Id', '$product_Id', '$employee_Id', '$order_Date', '$order_Status', '$product_Quantity')";
     if (mysqli_query($conn, $sql)) {
         echo "Records added successfully.";
@@ -24,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
 
-    // Close connection
     mysqli_close($conn);
 
 }

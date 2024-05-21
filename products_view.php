@@ -1,35 +1,35 @@
 <?php
-// Include auth_session.php file on all user panel pages
+
 include("auth_session.php");
 
-// Include database connection
+
 include_once 'db.php';
 
-// Check if the student ID is provided
+
 if (isset($_GET['id'])) {
-    // Escape user input for security
+    
     $product_Id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    // Fetch student details from the database
+    
     $resultProducts = mysqli_query($conn, "SELECT * FROM products WHERE product_Id = $product_Id");
 
-    // Check if the query was successful
+    
     if (!$resultProducts) {
-        // Query failed, display error message
+        
         echo "Error: " . mysqli_error($conn);
         exit();
     }
 
-    // Check if the student exists
+    
     if (mysqli_num_rows($resultProducts) == 1) {
         $row = mysqli_fetch_assoc($resultProducts);
     } else {
-        // Student not found, display message
+        
         echo "<p>Product not found</p>";
         exit();
     }
 } else {
-    // Student ID not provided, display message
+    
     echo "<p>Product ID not provided</p>";
     exit();
 }
@@ -70,7 +70,7 @@ if (isset($_GET['id'])) {
             <div class="block-header">
                 <h2>3 ACES DEWDROPS ORDER TRACKING SYSTEM</h2>
             </div>
-            <!-- View Student Details -->
+           
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">

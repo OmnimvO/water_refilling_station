@@ -60,7 +60,7 @@ include("auth_session.php");
                                 <?php
                                 include_once 'db.php';
 
-                                // Fetch orders with customer name, product name, and employee name
+                                
                                 $resultOrders = mysqli_query($conn, "
                                     SELECT 
                                         o.order_Id, 

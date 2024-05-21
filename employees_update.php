@@ -1,25 +1,21 @@
 <?php
-// Include database connection file
+
 require_once "db.php";
 include("auth_session.php");
 
-// Check if form is submitted
 if (isset($_POST['save'])) {
-    // Update employee information
+
     $employee_Id = $_POST['employee_Id'];
     $employee_Name = mysqli_real_escape_string($conn, $_POST['employee_Name']);
 
     mysqli_query($conn, "UPDATE employees SET employee_Name='$employee_Name' WHERE employee_Id='$employee_Id'");
     
-    // Alert for successful update
     echo '<script>alert("Employee information updated successfully")</script>';
 
-    // Redirect to dashboard after updating
-    echo "<script>window.location.href ='employees.php'</script>";
+    echo "<script>window.location.href ='employees  .php'</script>";
     exit();
 }
 
-// Fetch employee data from database
 if (isset($_GET['id'])) {
     $employee_Id = $_GET['id'];
     $result = mysqli_query($conn, "SELECT * FROM employees WHERE employee_Id='$employee_Id'");
@@ -66,7 +62,6 @@ if (isset($_GET['id'])) {
                 <h2>UPDATE EMPLOYEE</h2>
             </div>
 
-            <!-- Update Employee Form -->
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">

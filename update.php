@@ -1,11 +1,11 @@
 <?php
-// Include database connection file
+
 require_once "db.php";
 include("auth_session.php");
 
-// Check if form is submitted
+
 if (isset($_POST['save'])) {
-    // Update student information
+  
     $customer_Id = $_POST['customer_Id'];
     $customer_Name = mysqli_real_escape_string($conn, $_POST['customer_Name']);
     $customer_Contact = mysqli_real_escape_string($conn, $_POST['customer_Contact']);
@@ -13,15 +13,15 @@ if (isset($_POST['save'])) {
 
     mysqli_query($conn, "UPDATE customers SET customer_Name='$customer_Name', customer_Contact='$customer_Contact', shipping_Address='$shipping_Address' WHERE customer_Id='$customer_Id'");
     
-    // Alert for successful update
+    
     echo '<script>alert("Customer information updated successfully")</script>';
 
-    // Redirect to dashboard after updating
+    
     echo "<script>window.location.href ='dashboard.php'</script>";
     exit();
 }
 
-// Fetch student data from database
+
 if (isset($_GET['id'])) {
     $customer_Id = $_GET['id'];
     $result = mysqli_query($conn, "SELECT * FROM customers WHERE customer_Id='$customer_Id'");
@@ -68,7 +68,7 @@ if (isset($_GET['id'])) {
                 <h2>UPDATE CUSTOMER</h2>
             </div>
 
-            <!-- Update Student Form -->
+          
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">

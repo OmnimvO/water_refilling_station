@@ -1,26 +1,26 @@
 <?php
-// Include database connection file
+
 require_once "db.php";
 include("auth_session.php");
 
-// Check if form is submitted
+
 if (isset($_POST['save'])) {
-    // Update student information
+   
     $product_Id = $_POST['product_Id'];
     $product_Name = mysqli_real_escape_string($conn, $_POST['product_Name']);
     $price = mysqli_real_escape_string($conn, $_POST['price']);
 
     mysqli_query($conn, "UPDATE products SET product_Name='$product_Name', price='$price' WHERE product_Id='$product_Id'");
     
-    // Alert for successful update
+    
     echo '<script>alert("Product information updated successfully")</script>';
 
-    // Redirect to products after updating
+    
     echo "<script>window.location.href ='products.php'</script>";
     exit();
 }
 
-// Fetch student data from database
+
 if (isset($_GET['id'])) {
     $product_Id = $_GET['id'];
     $result = mysqli_query($conn, "SELECT * FROM products WHERE product_Id='$product_Id'");
@@ -67,7 +67,7 @@ if (isset($_GET['id'])) {
                 <h2>UPDATE Product</h2>
             </div>
 
-            <!-- Update Student Form -->
+           
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="card">

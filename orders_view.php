@@ -1,16 +1,16 @@
 <?php
-// Include auth_session.php file on all user panel pages
+
 include("auth_session.php");
 
-// Include database connection
+
 include_once 'db.php';
 
-// Check if the order ID is provided
+
 if (isset($_GET['id'])) {
-    // Escape user input for security
+    
     $order_Id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    // Fetch order details from the database using joins
+    
     $query = "
     SELECT 
         orders.order_Id, 
@@ -34,23 +34,23 @@ if (isset($_GET['id'])) {
     ";
     $resultOrders = mysqli_query($conn, $query);
 
-    // Check if the query was successful
+    
     if (!$resultOrders) {
-        // Query failed, display error message
+        
         echo "Error: " . mysqli_error($conn);
         exit();
     }
 
-    // Check if the order exists
+    
     if (mysqli_num_rows($resultOrders) == 1) {
         $row = mysqli_fetch_assoc($resultOrders);
     } else {
-        // Order not found, display message
+        
         echo "<p>Order not found</p>";
         exit();
     }
 } else {
-    // Order ID not provided, display message
+    
     echo "<p>Order ID not provided</p>";
     exit();
 }

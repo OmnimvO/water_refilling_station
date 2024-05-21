@@ -80,7 +80,7 @@ include("auth_session.php");
                                                 <tr>
                                                     <td><?php echo $row["product_Id"]; ?></td>
                                                     <td><?php echo $row["product_Name"]; ?></td>
-                                                    <td><?php echo $row["price"]; ?></td>
+                                                    <td><?php echo "Php " . $row["price"]; ?></td>
                                                     <td>
                                                         <a href="products_view.php?id=<?php echo $row["product_Id"]; ?>" class="btn btn-primary" title='View Record'>View</a>
                                                         <a href="products_update.php?id=<?php echo $row["product_Id"]; ?>" class="btn btn-success" title='Update Record'>Update</a>

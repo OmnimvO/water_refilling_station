@@ -1,33 +1,24 @@
 <?php
-// Include auth_session.php file on all user panel pages
 include("auth_session.php");
 
-// Include database connection
 include_once 'db.php';
 
-// Define variables and initialize with empty values
 $customer_Id = $product_Id = $employee_Id = $order_Date = $order_Status = $product_Quantity = "";
 $customer_Id_err = $product_Id_err = $employee_Id_err = $order_Date_err = $order_Status_err = $product_Quantity_err = "";
 
-// Check if the order ID is provided
 if (isset($_GET['id'])) {
-    // Escape user input for security
     $order_Id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    // Fetch order details from the database
     $resultOrders = mysqli_query($conn, "SELECT * FROM orders WHERE order_Id = $order_Id");
 
-    // Check if the query was successful
     if (!$resultOrders) {
-        // Query failed, display error message
+
         echo "Error: " . mysqli_error($conn);
         exit();
     }
 
-    // Check if the order exists
     if (mysqli_num_rows($resultOrders) == 1) {
         $row = mysqli_fetch_assoc($resultOrders);
-        // Initialize form values with existing order data
         $customer_Id = $row['customer_Id'];
         $product_Id = $row['product_Id'];
         $employee_Id = $row['employee_Id'];
@@ -35,70 +26,60 @@ if (isset($_GET['id'])) {
         $order_Status = $row['order_Status'];
         $product_Quantity = $row['product_Quantity'];
     } else {
-        // Order not found, display message
         echo "<p>Order not found</p>";
         exit();
     }
 } else {
-    // Order ID not provided, display message
     echo "<p>Order ID not provided</p>";
     exit();
 }
 
-// Processing form data when form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Validate customer_Id
+
     if (empty(trim($_POST["customer_Id"]))) {
         $customer_Id_err = "Please select a customer.";
     } else {
         $customer_Id = trim($_POST["customer_Id"]);
     }
 
-    // Validate product_Id
     if (empty(trim($_POST["product_Id"]))) {
         $product_Id_err = "Please select a product.";
     } else {
         $product_Id = trim($_POST["product_Id"]);
     }
 
-    // Validate employee_Id
     if (empty(trim($_POST["employee_Id"]))) {
         $employee_Id_err = "Please select an employee.";
     } else {
         $employee_Id = trim($_POST["employee_Id"]);
     }
 
-    // Validate order_Date
     if (empty(trim($_POST["order_Date"]))) {
         $order_Date_err = "Please enter an order date.";
     } else {
         $order_Date = trim($_POST["order_Date"]);
     }
 
-    // Validate order_Status
     if (empty(trim($_POST["order_Status"]))) {
         $order_Status_err = "Please select the order status.";
     } else {
         $order_Status = trim($_POST["order_Status"]);
     }
 
-    // Validate product_Quantity
     if (empty(trim($_POST["product_Quantity"]))) {
         $product_Quantity_err = "Please enter the quantity.";
     } else {
         $product_Quantity = trim($_POST["product_Quantity"]);
     }
 
-    // Check input errors before updating in database
     if (empty($customer_Id_err) && empty($product_Id_err) && empty($employee_Id_err) && empty($order_Date_err) && empty($order_Status_err) && empty($product_Quantity_err)) {
-        // Prepare an update statement
+
         $sql = "UPDATE orders SET customer_Id = ?, product_Id = ?, employee_Id = ?, order_Date = ?, order_Status = ?, product_Quantity = ? WHERE order_Id = ?";
 
         if ($stmt = mysqli_prepare($conn, $sql)) {
-            // Bind variables to the prepared statement as parameters
+
             mysqli_stmt_bind_param($stmt, "iiissii", $param_customer_Id, $param_product_Id, $param_employee_Id, $param_order_Date, $param_order_Status, $param_product_Quantity, $param_order_Id);
 
-            // Set parameters
             $param_customer_Id = $customer_Id;
             $param_product_Id = $product_Id;
             $param_employee_Id = $employee_Id;
@@ -107,9 +88,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_product_Quantity = $product_Quantity;
             $param_order_Id = $order_Id;
 
-            // Attempt to execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
-                // Redirect to orders page
+
                 header("location: orders.php");
                 exit();
             } else {
@@ -129,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>3 ACES DEWDROPS</title>
     <!-- Favicon-->
@@ -156,6 +136,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="includes/css/themes/all-themes.css" rel="stylesheet" />
+
+    <!-- Bootstrap Select Css -->
+    <link href="includes/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 </head>
 <body class="theme-red">
 <?php include ("nav.php"); ?>

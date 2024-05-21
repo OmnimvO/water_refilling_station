@@ -60,8 +60,25 @@ include("auth_session.php");
                                 <?php
                                 include_once 'db.php';
 
-                                
-                                $resultOrders = mysqli_query($conn, "SELECT * FROM orders");
+                                // Fetch orders with customer name, product name, and employee name
+                                $resultOrders = mysqli_query($conn, "
+                                    SELECT 
+                                        o.order_Id, 
+                                        c.customer_Name, 
+                                        p.product_Name, 
+                                        e.employee_Name, 
+                                        o.order_Date, 
+                                        o.order_Status, 
+                                        o.product_Quantity 
+                                    FROM 
+                                        orders o
+                                    LEFT JOIN 
+                                        customers c ON o.customer_Id = c.customer_Id
+                                    LEFT JOIN 
+                                        products p ON o.product_Id = p.product_Id
+                                    LEFT JOIN 
+                                        employees e ON o.employee_Id = e.employee_Id
+                                ");
                                 ?>
                                 <?php
                                 if (mysqli_num_rows($resultOrders) > 0) {
@@ -70,8 +87,13 @@ include("auth_session.php");
                                         <thead>
                                             <tr>    
                                                 <th>Order ID</th>
-                                                <th>Order Name</th>
-                                                <th>Price</th>
+                                                <th>Customer Name</th>
+                                                <th>Product Name</th>
+                                                <th>Employee Name</th>
+                                                <th>Order Date</th>
+                                                <th>Order Status</th>
+                                                <th>Quantity</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -80,8 +102,12 @@ include("auth_session.php");
                                             ?>
                                                 <tr>
                                                     <td><?php echo $row["order_Id"]; ?></td>
-                                                    <td><?php echo $row["order_Name"]; ?></td>
-                                                    <td><?php echo $row["price"]; ?></td>
+                                                    <td><?php echo $row["customer_Name"]; ?></td>
+                                                    <td><?php echo $row["product_Name"]; ?></td>
+                                                    <td><?php echo $row["employee_Name"]; ?></td>
+                                                    <td><?php echo $row["order_Date"]; ?></td>
+                                                    <td><?php echo $row["order_Status"]; ?></td>
+                                                    <td><?php echo $row["product_Quantity"]; ?></td>
                                                     <td>
                                                         <a href="orders_view.php?id=<?php echo $row["order_Id"]; ?>" class="btn btn-primary" title='View Record'>View</a>
                                                         <a href="orders_update.php?id=<?php echo $row["order_Id"]; ?>" class="btn btn-success" title='Update Record'>Update</a>

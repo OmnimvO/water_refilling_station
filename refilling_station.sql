@@ -8,14 +8,18 @@ CREATE TABLE `users` (
 
 CREATE TABLE `customers` (
   `customer_Id` int(11) AUTO_INCREMENT PRIMARY KEY,
-  `customer_Name` varchar(55) DEFAULT NULL,
+  `customer_fName` varchar(55) DEFAULT NULL,
+  `customer_lName` varchar(55) DEFAULT NULL,
   `customer_Contact` varchar(15) DEFAULT NULL,
-  `shipping_Address` varchar(155) DEFAULT NULL
+  `house_Number` int(11) DEFAULT NULL,
+  `street` varchar(55) DEFAULT NULL,
+  `barangay` varchar(55) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `employees` (
   `employee_Id` int(11) AUTO_INCREMENT PRIMARY KEY,
-  `employee_Name` varchar(55) DEFAULT NULL
+  `employee_fName` varchar(55) DEFAULT NULL,
+  `employee_lName` varchar(55) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `products` (

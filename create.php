@@ -3,12 +3,15 @@ require_once "db.php";
 include("auth_session.php");
 
 if(isset($_POST['save'])) {    
-    $customer_Name = $_POST['customer_Name'];
+    $customer_fName = $_POST['customer_fName'];
+    $customer_lName = $_POST['customer_lName'];
     $customer_Contact = $_POST['customer_Contact'];
-    $shipping_Address = $_POST['shipping_Address'];
+    $house_Number = $_POST['house_Number'];
+    $street = $_POST['street'];
+    $barangay = $_POST['barangay'];
 
-    $sql = "INSERT INTO customers (customer_Name, customer_Contact, shipping_Address)
-            VALUES ('$customer_Name', '$customer_Contact', '$shipping_Address')";
+    $sql = "INSERT INTO customers (customer_fName, customer_lName, customer_Contact, house_Number, street, barangay)
+            VALUES ('$customer_fName', '$customer_lName', '$customer_Contact', '$house_Number', '$street', '$barangay')";
 
     if (mysqli_query($conn, $sql)) {
         echo '<script>alert("Customer has been added.")</script>';
@@ -88,22 +91,40 @@ if(isset($_POST['save'])) {
                         <div class="body">
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                 
-                                <label for="customer_Name">Full Name</label>
+                                <label for="customer_fName">First Name</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" id="customer_Name" class="form-control" maxlength="50" placeholder="Enter your Name" name="customer_Name">
+                                        <input type="text" id="customer_fName" class="form-control" maxlength="55" placeholder="Enter your first name" name="customer_fName" required>
+                                    </div>
+                                </div>
+                                <label for="customer_lName">Last Name</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="customer_lName" class="form-control" maxlength="55" placeholder="Enter your last name" name="customer_lName" required>
                                     </div>
                                 </div>
                                 <label for="customer_Contact">Contact Number</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                    <input type="text" id="customer_Contact" class="form-control" maxlength="50" placeholder="Enter your contact number" name="customer_Contact">
+                                    <input type="text" id="customer_Contact" class="form-control" maxlength="15" placeholder="Enter your contact number" name="customer_Contact" required>
                                     </div>
                                 </div>
-                                <label for="shipping_Address">Shipping Address</label>
+                                <label for="house_Number">House Number</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                    <input type="text" id="shipping_Address" class="form-control" maxlength="50" placeholder="Enter your address" name="shipping_Address">
+                                    <input type="number" id="house_Number" class="form-control" placeholder="Enter your house number" name="house_Number" required>
+                                    </div>
+                                </div>
+                                <label for="street">Street</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                    <input type="text" id="street" class="form-control" maxlength="55" placeholder="Enter your street" name="street" required>
+                                    </div>
+                                </div>
+                                <label for="barangay">Barangay</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                    <input type="text" id="barangay" class="form-control" maxlength="55" placeholder="Enter your barangay" name="barangay" required>
                                     </div>
                                 </div>
                                 <input type="submit" class="btn btn-primary m-t-15 waves-effect" name="save" value="Submit">

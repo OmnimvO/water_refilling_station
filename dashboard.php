@@ -59,7 +59,6 @@ include("auth_session.php");
                                 <?php
                                 include_once 'db.php';
 
-                                
                                 $resultCustomers = mysqli_query($conn, "SELECT * FROM customers");
                                 ?>
                                 <?php
@@ -69,9 +68,12 @@ include("auth_session.php");
                                         <thead>
                                             <tr>
                                                 <th>Customer ID</th>
-                                                <th>Customer Name</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
                                                 <th>Contact Number</th>
-                                                <th>Shipping Address</th>
+                                                <th>House Number</th>
+                                                <th>Street</th>
+                                                <th>Barangay</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -81,9 +83,12 @@ include("auth_session.php");
                                             ?>
                                                 <tr>
                                                     <td><?php echo $row["customer_Id"]; ?></td>
-                                                    <td><?php echo $row["customer_Name"]; ?></td>
+                                                    <td><?php echo $row["customer_fName"]; ?></td>
+                                                    <td><?php echo $row["customer_lName"]; ?></td>
                                                     <td><?php echo $row["customer_Contact"]; ?></td>
-                                                    <td><?php echo $row["shipping_Address"]; ?></td>
+                                                    <td><?php echo $row["house_Number"]; ?></td>
+                                                    <td><?php echo $row["street"]; ?></td>
+                                                    <td><?php echo $row["barangay"]; ?></td>
                                                     <td>
                                                         <a href="view.php?id=<?php echo $row["customer_Id"]; ?>" class="btn btn-primary" title='View Record'>View</a>
                                                         <a href="update.php?id=<?php echo $row["customer_Id"]; ?>" class="btn btn-success" title='Update Record'>Update</a>
@@ -105,8 +110,6 @@ include("auth_session.php");
                     </div>
                 </div>
             </div>
-          
-            
         </div>
     </section>
 

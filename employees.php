@@ -1,5 +1,5 @@
 <?php
-//include auth_session.php file on all user panel pages
+
 include("auth_session.php");
 ?>
 <!DOCTYPE html>
@@ -59,27 +59,28 @@ include("auth_session.php");
                                 <?php
                                 include_once 'db.php';
 
-                                
-                                $resultCustomers = mysqli_query($conn, "SELECT * FROM employees");
+                                $resultEmployees = mysqli_query($conn, "SELECT * FROM employees");
                                 ?>
                                 <?php
-                                if (mysqli_num_rows($resultCustomers) > 0) {
+                                if (mysqli_num_rows($resultEmployees) > 0) {
                                 ?>
                                     <table class="table table-bordered table-striped table-hover js-basic-example">
                                         <thead>
                                             <tr>
                                                 <th>Employee ID</th>
-                                                <th>Employee Name</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            while ($row = mysqli_fetch_array($resultCustomers)) {
+                                            while ($row = mysqli_fetch_array($resultEmployees)) {
                                             ?>
                                                 <tr>
                                                     <td><?php echo $row["employee_Id"]; ?></td>
-                                                    <td><?php echo $row["employee_Name"]; ?></td>
+                                                    <td><?php echo $row["employee_fName"]; ?></td>
+                                                    <td><?php echo $row["employee_lName"]; ?></td>
                                                     <td>
                                                         <a href="employees_view.php?id=<?php echo $row["employee_Id"]; ?>" class="btn btn-primary" title='View Record'>View</a>
                                                         <a href="employees_update.php?id=<?php echo $row["employee_Id"]; ?>" class="btn btn-success" title='Update Record'>Update</a>
@@ -93,7 +94,7 @@ include("auth_session.php");
                                     </table>
                                 <?php
                                 } else {
-                                    echo "No result found for customers";
+                                    echo "No result found for employees";
                                 }
                                 ?>
                             </div>
@@ -101,8 +102,6 @@ include("auth_session.php");
                     </div>
                 </div>
             </div>
-          
-            
         </div>
     </section>
 

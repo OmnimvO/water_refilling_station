@@ -1,14 +1,14 @@
 <?php
-
 require_once "db.php";
 include("auth_session.php");
 
 if (isset($_POST['save'])) {
 
     $employee_Id = $_POST['employee_Id'];
-    $employee_Name = mysqli_real_escape_string($conn, $_POST['employee_Name']);
+    $employee_fName = mysqli_real_escape_string($conn, $_POST['employee_fName']);
+    $employee_lName = mysqli_real_escape_string($conn, $_POST['employee_lName']);
 
-    mysqli_query($conn, "UPDATE employees SET employee_Name='$employee_Name' WHERE employee_Id='$employee_Id'");
+    mysqli_query($conn, "UPDATE employees SET employee_fName='$employee_fName', employee_lName='$employee_lName' WHERE employee_Id='$employee_Id'");
     
     echo '<script>alert("Employee information updated successfully")</script>';
 
@@ -68,8 +68,12 @@ if (isset($_GET['id'])) {
                         <div class="body">
                             <form method="post">
                                 <div class="form-group">
-                                    <label for="employee_Name">Employee Name:</label>
-                                    <input style="border: 1px solid #eee;" type="text" class="form-control" id="employee_Name" name="employee_Name" value="<?php echo htmlspecialchars($row['employee_Name']); ?>" required>
+                                    <label for="employee_fName">First Name:</label>
+                                    <input style="border: 1px solid #eee;" type="text" class="form-control" id="employee_fName" name="employee_fName" value="<?php echo htmlspecialchars($row['employee_fName']); ?>" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="employee_lName">Last Name:</label>
+                                    <input style="border: 1px solid #eee;" type="text" class="form-control" id="employee_lName" name="employee_lName" value="<?php echo htmlspecialchars($row['employee_lName']); ?>" required>
                                 </div>
                                 <input type="hidden" name="employee_Id" value="<?php echo htmlspecialchars($row['employee_Id']); ?>"/>
                                 <input type="submit" class="btn btn-primary" name="save" value="Update">

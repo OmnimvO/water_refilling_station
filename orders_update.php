@@ -12,7 +12,6 @@ if (isset($_GET['id'])) {
     $resultOrders = mysqli_query($conn, "SELECT * FROM orders WHERE order_Id = $order_Id");
 
     if (!$resultOrders) {
-
         echo "Error: " . mysqli_error($conn);
         exit();
     }
@@ -89,7 +88,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_order_Id = $order_Id;
 
             if (mysqli_stmt_execute($stmt)) {
-
                 header("location: orders.php");
                 exit();
             } else {
@@ -177,12 +175,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <select id="customer_Id" class="form-control" name="customer_Id">
                                         <option value="">Select Customer</option>
                                         <?php
-
-                                            $result = mysqli_query($conn, "SELECT customer_Id, customer_Name FROM customers");
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $selected = ($row['customer_Id'] == $customer_Id) ? 'selected' : '';
-                                            echo '<option value="' . $row['customer_Id'] . '" ' . $selected . '>' . $row['customer_Name'] . '</option>';
-                                        }
+                                            $result = mysqli_query($conn, "SELECT customer_Id, CONCAT(customer_fName, ' ', customer_lName) AS customer_Name FROM customers");
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                $selected = ($row['customer_Id'] == $customer_Id) ? 'selected' : '';
+                                                echo '<option value="' . $row['customer_Id'] . '" ' . $selected . '>' . $row['customer_Name'] . '</option>';
+                                            }
                                         ?>
                                     </select>
                                 </div>
@@ -195,12 +192,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <select id="product_Id" class="form-control" name="product_Id">
                                         <option value="">Select Product</option>
                                         <?php
-
-                                        $result = mysqli_query($conn, "SELECT product_Id, product_Name FROM products");
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $selected = ($row['product_Id'] == $product_Id) ? 'selected' : '';
-                                            echo '<option value="' . $row['product_Id'] . '" ' . $selected . '>' . $row['product_Name'] . '</option>';
-                                        }
+                                            $result = mysqli_query($conn, "SELECT product_Id, product_Name FROM products");
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                $selected = ($row['product_Id'] == $product_Id) ? 'selected' : '';
+                                                echo '<option value="' . $row['product_Id'] . '" ' . $selected . '>' . $row['product_Name'] . '</option>';
+                                            }
                                         ?>
                                     </select>
                                 </div>
@@ -213,12 +209,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <select id="employee_Id" class="form-control" name="employee_Id">
                                         <option value="">Select Employee</option>
                                         <?php
-
-                                        $result = mysqli_query($conn, "SELECT employee_Id, employee_Name FROM employees");
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $selected = ($row['employee_Id'] == $employee_Id) ? 'selected' : '';
-                                            echo '<option value="' . $row['employee_Id'] . '" ' . $selected . '>' . $row['employee_Name'] . '</option>';
-                                        }
+                                            $result = mysqli_query($conn, "SELECT employee_Id, CONCAT(employee_fName, ' ', employee_lName) AS employee_Name FROM employees");
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                $selected = ($row['employee_Id'] == $employee_Id) ? 'selected' : '';
+                                                echo '<option value="' . $row['employee_Id'] . '" ' . $selected . '>' . $row['employee_Name'] . '</option>';
+                                            }
                                         ?>
                                     </select>
                                 </div>

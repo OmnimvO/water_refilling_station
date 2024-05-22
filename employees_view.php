@@ -85,8 +85,12 @@ if (isset($_GET['id'])) {
                                         <td><?php echo htmlspecialchars($row["employee_Id"]); ?></td>
                                     </tr>
                                     <tr>
-                                        <th>Employee Name</th>
-                                        <td><?php echo htmlspecialchars($row["employee_Name"]); ?></td>
+                                        <th>First Name</th>
+                                        <td><?php echo htmlspecialchars($row["employee_fName"]); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Name</th>
+                                        <td><?php echo htmlspecialchars($row["employee_lName"]); ?></td>
                                     </tr>
                                 </tbody>
                             </table>

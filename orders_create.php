@@ -1,7 +1,6 @@
 <?php
 
 include("auth_session.php");
-
 include_once 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -30,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>3 ACES DEWDROPS</title>
     <!-- Favicon-->
@@ -90,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <select id="customer_Id" class="form-control show-tick" name="customer_Id" required>
                                             <option value="">-- Please select a customer --</option>
                                             <?php
-                                            $resultCustomer = mysqli_query($conn, "SELECT customer_Id, customer_Name FROM customers");
+                                            $resultCustomer = mysqli_query($conn, "SELECT customer_Id, CONCAT(customer_fName, ' ', customer_lName) AS customer_Name FROM customers");
                                             while ($row = mysqli_fetch_assoc($resultCustomer)) {
                                                 echo "<option value='" . $row['customer_Id'] . "'>" . $row['customer_Name'] . "</option>";
                                             }
@@ -124,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <select id="employee_Id" class="form-control show-tick" name="employee_Id" required>
                                             <option value="">-- Please select an employee --</option>
                                             <?php
-                                            $resultEmployee = mysqli_query($conn, "SELECT employee_Id, employee_Name FROM employees");
+                                            $resultEmployee = mysqli_query($conn, "SELECT employee_Id, CONCAT(employee_fName, ' ', employee_lName) AS employee_Name FROM employees");
                                             while ($row = mysqli_fetch_assoc($resultEmployee)) {
                                                 echo "<option value='" . $row['employee_Id'] . "'>" . $row['employee_Name'] . "</option>";
                                             }
@@ -169,18 +168,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </div>
                 </div>
             </div>
-            <!-- #END# Vertical Layout -->
+           <!-- #END# Vertical Layout -->
         </div>
     </section>
 
-   
-   <!-- Jquery Core Js -->
-   <script src="includes/plugins/jquery/jquery.min.js"></script>
+    <!-- Jquery Core Js -->
+    <script src="includes/plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
     <script src="includes/plugins/bootstrap/js/bootstrap.js"></script>
 
-    <!-- Bootstrap Select Plugin Js -->
+    <!-- Select Plugin Js -->
     <script src="includes/plugins/bootstrap-select/js/bootstrap-select.js"></script>
 
     <!-- Slimscroll Plugin Js -->
@@ -194,7 +192,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Demo Js -->
     <script src="includes/js/demo.js"></script>
-
 </body>
 
 </html>
+

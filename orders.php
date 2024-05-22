@@ -1,5 +1,4 @@
 <?php
-//include auth_session.php file on all user panel pages
 include("auth_session.php");
 ?>
 <!DOCTYPE html>
@@ -60,13 +59,13 @@ include("auth_session.php");
                                 <?php
                                 include_once 'db.php';
 
-                                
+                                // Modified query to include concatenated customer and employee names
                                 $resultOrders = mysqli_query($conn, "
                                     SELECT 
                                         o.order_Id, 
-                                        c.customer_Name, 
+                                        CONCAT(c.customer_fName, ' ', c.customer_lName) AS customer_Name, 
                                         p.product_Name, 
-                                        e.employee_Name, 
+                                        CONCAT(e.employee_fName, ' ', e.employee_lName) AS employee_Name, 
                                         o.order_Date, 
                                         o.order_Status, 
                                         o.product_Quantity 
@@ -129,8 +128,6 @@ include("auth_session.php");
                     </div>
                 </div>
             </div>
-          
-            
         </div>
     </section>
 

@@ -3,11 +3,11 @@ require_once "db.php";
 include("auth_session.php");
 
 if(isset($_POST['save'])) {    
-    $employee_Name = $_POST['employee_Name'];
+    $employee_fName = $_POST['employee_fName'];
+    $employee_lName = $_POST['employee_lName'];
 
-
-    $sql = "INSERT INTO employees (employee_Name)
-            VALUES ('$employee_Name')";
+    $sql = "INSERT INTO employees (employee_fName, employee_lName)
+            VALUES ('$employee_fName', '$employee_lName')";
 
     if (mysqli_query($conn, $sql)) {
         echo '<script>alert("Employee has been added.")</script>';
@@ -87,10 +87,17 @@ if(isset($_POST['save'])) {
                         <div class="body">
                             <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                                 
-                                <label for="employee_Name">Full Name</label>
+                                <label for="employee_fName">First Name</label>
                                 <div class="form-group">
                                     <div class="form-line">
-                                        <input type="text" id="employee_Name" class="form-control" maxlength="50" placeholder="Enter your Name" name="employee_Name">
+                                        <input type="text" id="employee_fName" class="form-control" maxlength="50" placeholder="Enter First Name" name="employee_fName">
+                                    </div>
+                                </div>
+
+                                <label for="employee_lName">Last Name</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <input type="text" id="employee_lName" class="form-control" maxlength="50" placeholder="Enter Last Name" name="employee_lName">
                                     </div>
                                 </div>
                                

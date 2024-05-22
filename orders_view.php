@@ -1,10 +1,7 @@
 <?php
 
 include("auth_session.php");
-
-
 include_once 'db.php';
-
 
 if (isset($_GET['id'])) {
     
@@ -14,9 +11,9 @@ if (isset($_GET['id'])) {
     $query = "
     SELECT 
         orders.order_Id, 
-        customers.customer_Name, 
+        CONCAT(customers.customer_fName, ' ', customers.customer_lName) AS customer_Name, 
         products.product_Name, 
-        employees.employee_Name, 
+        CONCAT(employees.employee_fName, ' ', employees.employee_lName) AS employee_Name, 
         orders.order_Date, 
         orders.order_Status, 
         orders.product_Quantity 
